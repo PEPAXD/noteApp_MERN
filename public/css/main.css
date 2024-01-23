@@ -1,3 +1,108 @@
+:root {
+  --background-color: #fff;
+  --bs-primary-rgb: #0d6efd;
+  --bs-light-primary-rgb: #4590ff;
+  --bs-black-rgb: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    overflow: hidden;
+  }
+  
+
 body {
-    background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--bs-primary-rgb);
+  font-size: 1.5em;
+
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Unbounded", cursive;
+  font-weight: 800;
+}
+
+
+p{
+    color: var(--bs-black-rgb);
+}
+
+.container-fluid-custom {
+  max-width: 1600px;
+}
+
+/* button */
+.btn {
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--bs-light-primary-rgb);
+  --bs-btn-border-color: var(--bs-light-primary-rgb);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0043a8;
+  --bs-btn-hover-border-color: #0043a8;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bs-primary-rgb);
+  --bs-btn-active-border-color: var(--bs-primary-rgb);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--bs-primary-rgb);
+  --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--bs-primary-rgb);
+  --bs-btn-border-color: var(--bs-primary-rgb);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0043a8;
+  --bs-btn-hover-border-color: #0043a8;
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bs-primary-rgb);
+  --bs-btn-active-border-color: var(--bs-primary-rgb);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--bs-primary-rgb);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+  --bs-gradient: none;
+}
+
+.pagination {
+  --bs-pagination-color: var(--bs-primary-rgb);
+  --bs-pagination-active-bg: var(--bs-primary-rgb);
+  --bs-pagination-active-border-color: var(--bs-primary-rgb);
+}
+
+/* Home */
+@media (min-width: 1200px) {
+  .home {
+    background: url("../img/human_1.svg") left bottom no-repeat,
+        url("../img/human_2.svg") right bottom no-repeat;
+
+
+    background-size: 30%;
+
+  }
 }

@@ -10,7 +10,11 @@ exports.homePage = async (req, res) => {
         description: 'ensolvers-challenge - by Mauro Pepa'
     }
         
-    res.render('index', locals);
+    res.render('index', {
+        locals,
+        layout: '../views/layouts/front-page'
+    
+    });
 }
 
 /**
