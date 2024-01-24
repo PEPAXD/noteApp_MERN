@@ -1,68 +1,56 @@
 :root {
   --background-color: #fff;
-  --bs-primary-rgb: #0d6efd;
-  --bs-light-primary-rgb: #4590ff;
-  --bs-black-rgb: #000;
+  --bs-primary-rgb: #12296c;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    outline: none;
-    border: none;
-    text-decoration: none;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
   color: var(--bs-primary-rgb);
+  font-weight: 300;
   font-size: 1.5em;
+
 }
-
-
 
 .nav-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Unbounded", cursive;
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Unbounded', cursive;
   font-weight: 800;
-}
-
-
-p{
-    color: var(--bs-black-rgb);
 }
 
 .container-fluid-custom {
   max-width: 1600px;
 }
 
-/* button */
+/* Button */
 .btn {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
   border-radius: 2rem;
-  padding: 0.5rem 2rem;
 }
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: var(--bs-light-primary-rgb);
-  --bs-btn-border-color: var(--bs-light-primary-rgb);
+  --bs-btn-bg: var(--bs-primary-rgb);
+  --bs-btn-border-color: var(--bs-primary-rgb);
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0043a8;
   --bs-btn-hover-border-color: #0043a8;
-  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: var(--bs-primary-rgb);
   --bs-btn-active-border-color: var(--bs-primary-rgb);
@@ -78,7 +66,7 @@ p{
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0043a8;
   --bs-btn-hover-border-color: #0043a8;
-  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-focus-shadow-rgb: 13,110,253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: var(--bs-primary-rgb);
   --bs-btn-active-border-color: var(--bs-primary-rgb);
@@ -95,14 +83,15 @@ p{
   --bs-pagination-active-border-color: var(--bs-primary-rgb);
 }
 
+
 /* Home */
 @media (min-width: 1200px) {
   .home {
-    background: url("../img/human_1.svg") left bottom no-repeat,
-        url("../img/human_2.svg") right bottom no-repeat;
-
-
+    background: 
+      url('../img/human-1.svg') left center no-repeat,
+      url('../img/human-2.svg') right center no-repeat,
+      var(--background-color);
     background-size: 30%;
-
+    ;
   }
 }

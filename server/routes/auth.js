@@ -22,7 +22,6 @@ passport.use(
 
       try {
         let user = await User.findOne({ googleId: profile.id });
-
         if (user) {
           done(null, user);
         } else {
@@ -30,13 +29,13 @@ passport.use(
           done(null, user);
         }
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
   )
 );
 
-// Google Login Auth
+// Google Login Route
 router.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
@@ -52,36 +51,47 @@ router.get(
 );
 
 // Route if something goes wrong
-router.get("/login-failure", (req, res) => {
-  res.send("Something went wrong with Google OAuth");
+router.get('/login-failure', (req, res) => {
+  res.send('Something went wrong...');
 });
 
-// Destroy session and logout
-router.get("/logout", (req, res) => {
+// Destroy user session
+router.get('/logout', (req, res) => {
   req.session.destroy(error => {
-
-    if (error) {
-        console.log(error);
-        res.send('Error logging out');
+    if(error) {
+      console.log(error);
+      res.send('Error loggin out');
     } else {
-      res.redirect("/");
+      res.redirect('/')
     }
-  });
+  })
 });
 
-// Presiste user data after successful login
-passport.serializeUser((user, done) => {
+
+// Presist user data after successful authentication
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-// Retrieve user data after successful login
+// Retrieve user data from session.
+// Original Code
+// passport.deserializeUser(function (id, done) {
+//   User.findById(id, function (err, user) {
+//     done(err, user);
+//   });
+// });
+
+// New
 passport.deserializeUser(async (id, done) => {
-    try {
-      const user = await User.findById(id);
-      done(null, user);
-    } catch (err) {
-      done(err, null);
-    }
-  });
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err, null);
+  }
+});
+
+
+
 
 module.exports = router;
