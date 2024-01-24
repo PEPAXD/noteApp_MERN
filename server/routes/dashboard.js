@@ -7,8 +7,6 @@ const dashboardController = require('../controllers/dashboardController');
  * Dashboard routes
  */
 
-//TODO: Add isLoggedIn middleware FIX ERROR
-
-router.get('/dashboard', dashboardController.dashboard);
+router.get('/dashboard', isLoggedIn,  dashboardController.dashboard);
 
 module.exports = router;

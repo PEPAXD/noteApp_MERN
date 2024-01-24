@@ -1,3 +1,7 @@
+const Note = require('../models/Notes');
+const mongoose = require('mongoose');
+
+
 /**
  * GET /
  * dashboard
@@ -11,6 +15,7 @@ exports.dashboard = async (req, res) => {
     }
         
     res.render('dashboard/index', {
+        userName: req.user.firstName,
         locals,
         layout: '../views/layouts/dashboard'
     

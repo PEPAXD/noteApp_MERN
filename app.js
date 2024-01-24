@@ -15,11 +15,14 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    
+    // Delete expired sessions
+    //cookie: { maxAge: 3600000 }
 }));
 
 app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.session());
 
 // Listen
 app.use(express.urlencoded({ extended: true }));
