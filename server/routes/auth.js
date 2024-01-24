@@ -56,16 +56,32 @@ router.get("/login-failure", (req, res) => {
   res.send("Something went wrong with Google OAuth");
 });
 
+// Destroy session and logout
+router.get("/logout", (req, res) => {
+  req.session.destroy(error => {
+
+    if (error) {
+        console.log(error);
+        res.send('Error logging out');
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
 // Presiste user data after successful login
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
 // Retrieve user data after successful login
-passport.deserializeUser((id, done) => {
-  User.FindById(id).then((user) => {
-    done(err, user);
+passport.deserializeUser(async (id, done) => {
+    try {
+      const user = await User.findById(id);
+      done(null, user);
+    } catch (err) {
+      done(err, null);
+    }
   });
-});
 
 module.exports = router;
